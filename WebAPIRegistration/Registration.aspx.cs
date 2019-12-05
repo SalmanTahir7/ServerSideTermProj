@@ -16,7 +16,14 @@ namespace WebAPIRegistration
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-
+            if(DropDownList1.SelectedItem.Text == "Customer")
+            {
+                Customer.Style["visibility"] = "visible";
+            }
+            else
+            {
+                Restaurant.Style["visibility"] = "visible";
+            }
         }
     }
 }

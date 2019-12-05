@@ -9,8 +9,13 @@ using System.Data;
 
 using System.Data.SqlClient;
 
+using System.Data;              // import needed for DataSet and other data classes
 
-//using Utilities;
+using System.Data.SqlClient;    // import needed for ADO.NET classes
+
+using Utilities;                // import needed for DBConnect class
+
+
 
 namespace WebAPI.Controllers
 {
@@ -61,7 +66,8 @@ namespace WebAPI.Controllers
         {
             List<Transaction> transactions = new List<Transaction>();
             //Retrieve Transaction Data From DB 
-
+            
+            
             return transactions;
         }
 
