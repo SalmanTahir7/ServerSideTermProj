@@ -67,6 +67,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label lblBrowse;
         
         /// <summary>
+        /// searchDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchDiv;
+        
+        /// <summary>
         /// txtRestName control.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button btnRestName;
         
         /// <summary>
-        /// restType control.
+        /// txtRestType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList restType;
+        protected global::System.Web.UI.WebControls.TextBox txtRestType;
         
         /// <summary>
         /// btnRestType control.
@@ -101,6 +110,15 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRestType;
+        
+        /// <summary>
+        /// btnAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAll;
         
         /// <summary>
         /// divRestur control.
@@ -146,6 +164,15 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuDiv;
+        
+        /// <summary>
+        /// lblOrderFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrderFrom;
         
         /// <summary>
         /// gvMenu control.

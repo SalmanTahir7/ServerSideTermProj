@@ -98,7 +98,7 @@ namespace SalAndGabeFoodDelivery
                         {
                             getReader.Close();
                             Session["customer"] = user;
-                            Session["userNameC"] = user.Name;
+                            //Session["userNameC"] = user.Name;
                             Server.Transfer("CustomerHome.aspx");
                         }
                         else if(user.UserType == "Resturant")
