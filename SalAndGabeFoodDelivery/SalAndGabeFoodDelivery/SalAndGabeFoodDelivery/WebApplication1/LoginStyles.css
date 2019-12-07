@@ -1,0 +1,28 @@
+﻿body {
+}
+
+#loginDiv{
+    width: 40%;
+    margin:auto;
+    border:6px solid cyan;
+    background-color:white;
+}
+
+#regDiv {
+    width: 40%;
+    margin: auto;
+    border: 6px solid cyan;
+    background-color: white;
+}
+
+#regRestDiv {
+    width: 40%;
+    margin: auto;
+    border: 6px solid cyan;
+    background-color: white;
+}
+
+.navbar navbar-fixed-top{
+    background-color:black;
+    color:cyan;
+}
