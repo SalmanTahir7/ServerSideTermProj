@@ -42,79 +42,132 @@ namespace WebAPIMerchant.Controllers
         */
         DBConnect objDB = new DBConnect();
         SqlCommand objCommand = new SqlCommand();
-        [HttpPost()]
-        [HttpPost("CreateVirtualWallet/{AccountHolderInformation}/{MerchantAccountID}/{APIKey}")]
-        public void CreateVirtualWallet(int AccountHolderInformation, int MerchantAccountID, int APIKey)
+
+        private bool isMerchant(int merchid, int apikey)
         {
-
-            //Creates a Virtal Wallet ID for the Merchant to use
-            //VirtualID of 6 Values between 0-9
-            DataSet ds = objDB.GetDataSet("SELECT * FROM TP_USERS WHERE LoginID = " + AccountHolderInformation);
-            DataRow record;
-            record = ds.Tables[0].Rows[0];
-            Merchant merchant = new Merchant();
-            merchant.Name = (string) record["Name"];
-            merchant.MerchantType = (string)record["Type"];
-            merchant.Address = (string)record["Address"];
-            merchant.AccountNum = (int)record["AccountNum"];
-
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "AddWallet";
+            objCommand.CommandText = "FindMerchant";
+            SqlParameter merchant = new SqlParameter("@merchantid", merchid);
+            merchant.Direction = ParameterDirection.Input;
+            merchant.SqlDbType = SqlDbType.Int;
+            merchant.Size = 4;
+            objCommand.Parameters.Add(merchant);
+            SqlParameter api = new SqlParameter("@webapi", apikey);
+            api.Direction = ParameterDirection.Input;
+            api.SqlDbType = SqlDbType.Int;
+            api.Size = 4;
+            objCommand.Parameters.Add(api);
+            DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+            objCommand.Parameters.Clear();
             
 
-            Random random = new Random();
-            string r = "";
-            int i;
-            int virtualid;
-            for (i = 1; i < 7; i++)
+            //DataSet ds = objDB.GetDataSet("SELECT * FROM Merchant WHERE MerchantID = " + merchid + " AND WebAPIKey = " + apikey);
+            if (ds.Tables[0].Rows.Count != 0)
             {
-                r += random.Next(0, 9).ToString();
+                return true;
             }
-            r += MerchantAccountID.ToString();
-            virtualid = Convert.ToInt32(r);
+            else
+            {
+                return false;
+            }
+        }
 
-            SqlParameter vid = new SqlParameter("@virtualid", virtualid);
-            vid.Direction = ParameterDirection.Input;
-            vid.SqlDbType = SqlDbType.Int;
-            vid.Size = 4;
-            objCommand.Parameters.Add(vid);
-            SqlParameter inputParameter = new SqlParameter("@amount", 0.0);
+        [HttpPost("CreateVirtualWallet/{AccountHolderInformation}/{MerchantAccountID}/{APIKey}")]
+        public Boolean CreateVirtualWallet(int AccountHolderInformation, int MerchantAccountID, int APIKey)
+        {
 
-            inputParameter.Direction = ParameterDirection.Input;
+            if(isMerchant(MerchantAccountID, APIKey) == true)
+            {
+                try
+                {
+                    //Creates a Virtal Wallet ID for the Merchant to use
+                    //VirtualID of 6 Values between 0-9
+                    //DataSet ds = objDB.GetDataSet("SELECT * FROM TP_USERS WHERE LoginID = " + AccountHolderInformation);
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "GetUser";
+                    SqlParameter login = new SqlParameter("@loginid", AccountHolderInformation);
+                    login.Direction = ParameterDirection.Input;
+                    login.SqlDbType = SqlDbType.Int;
+                    login.Size = 4;
+                    objCommand.Parameters.Add(login);
+                    DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
+                    objCommand.Parameters.Clear(); 
 
-            inputParameter.SqlDbType = SqlDbType.Float;
 
-            inputParameter.Size = 4;
-            objCommand.Parameters.Add(inputParameter);
-            SqlParameter type = new SqlParameter("@atype", merchant.MerchantType);
-            type.Direction = ParameterDirection.Input;
-            type.SqlDbType = SqlDbType.VarChar;
-            type.Size = 50;
-            objCommand.Parameters.Add(type);
-            SqlParameter address = new SqlParameter("@address", merchant.Address);
-            address.Direction = ParameterDirection.Input;
-            address.SqlDbType = SqlDbType.VarChar;
-            address.Size = 50;
-            objCommand.Parameters.Add(address);
-            SqlParameter name = new SqlParameter("@name", merchant.Name);
-            name.Direction = ParameterDirection.Input;
-            name.SqlDbType = SqlDbType.VarChar;
-            name.Size = 50;
-            objCommand.Parameters.Add(name);
-            SqlParameter accountnum = new SqlParameter("@anum", merchant.AccountNum);
-            accountnum.Direction = ParameterDirection.Input;
-            accountnum.SqlDbType = SqlDbType.Int;
-            accountnum.Size = 4;
-            objCommand.Parameters.Add(accountnum);
-            objDB.DoUpdateUsingCmdObj(objCommand);
+                    DataRow record;
+                    record = ds.Tables[0].Rows[0];
+                    Merchant merchant = new Merchant((string)record["Name"], (string)record["Address"], (string)record["Type"], (int)record["AccountNum"], 0.0, MerchantAccountID, APIKey);
+                    
+
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "AddWallet";
+
+
+                    Random random = new Random();
+                    string r = "";
+                    int i;
+                    int virtualid;
+                    for (i = 1; i < 2; i++)
+                    {
+                        r += random.Next(0, 9).ToString();
+                    }
+                    r += MerchantAccountID.ToString();
+                    virtualid = Convert.ToInt32(r);
+
+                    SqlParameter vid = new SqlParameter("@virtualid", virtualid);
+                    vid.Direction = ParameterDirection.Input;
+                    vid.SqlDbType = SqlDbType.Int;
+                    vid.Size = 4;
+                    objCommand.Parameters.Add(vid);
+                    SqlParameter inputParameter = new SqlParameter("@amount", merchant.InitBalance);
+
+                    inputParameter.Direction = ParameterDirection.Input;
+
+                    inputParameter.SqlDbType = SqlDbType.Float;
+
+                    inputParameter.Size = 4;
+                    objCommand.Parameters.Add(inputParameter);
+                    SqlParameter type = new SqlParameter("@atype", merchant.MerchantType);
+                    type.Direction = ParameterDirection.Input;
+                    type.SqlDbType = SqlDbType.VarChar;
+                    type.Size = 50;
+                    objCommand.Parameters.Add(type);
+                    SqlParameter address = new SqlParameter("@address", merchant.Address);
+                    address.Direction = ParameterDirection.Input;
+                    address.SqlDbType = SqlDbType.VarChar;
+                    address.Size = 50;
+                    objCommand.Parameters.Add(address);
+                    SqlParameter name = new SqlParameter("@name", merchant.Name);
+                    name.Direction = ParameterDirection.Input;
+                    name.SqlDbType = SqlDbType.VarChar;
+                    name.Size = 50;
+                    objCommand.Parameters.Add(name);
+                    SqlParameter accountnum = new SqlParameter("@anum", merchant.AccountNum);
+                    accountnum.Direction = ParameterDirection.Input;
+                    accountnum.SqlDbType = SqlDbType.Int;
+                    accountnum.Size = 4;
+                    objCommand.Parameters.Add(accountnum);
+                    objDB.DoUpdateUsingCmdObj(objCommand);
+                    return true;
+                }
+                catch(Exception ex)
+                {
+                    string message = ex.Message;
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
 
             //return virtualid;
         }
 
-        [HttpGet()]
-        [HttpGet("GetTransactions")]
+       
+        [HttpGet("GetTransactions/{VirtualWalletID}/{MerchantAccountID}/{APIKey}")]
 
-        public List<Transaction> GetTransactions(object VirtualWalletID, object MerchantAccountID, object APIKey)
+        public List<Transaction> GetTransactions(int VirtualWalletID, int MerchantAccountID, int APIKey)
         {
             //Retrieves the Transactions from the Database that match virtual wallet id and merchant account id 
              List<Transaction> transactions = new List<Transaction>();
@@ -130,7 +183,7 @@ namespace WebAPIMerchant.Controllers
             objCommand.Parameters.Add(input);
 
             DataSet ds = objDB.GetDataSetUsingCmdObj(objCommand);
-
+            objCommand.Parameters.Clear();
             DataTable dataTable = new DataTable();
             
             if(ds.Tables[0].Rows.Count != 0)
@@ -149,10 +202,10 @@ namespace WebAPIMerchant.Controllers
             return transactions;
         }
 
-        [HttpPost()]
-        [HttpPost("ProcessPayment")]
+       
+        [HttpPost("ProcessPayment/{VirtualWalletID}/{VirtualWalletID2}/{amount}/{type}/{MerchantAccountID}/{APIKey}")]
 
-        public void ProcessPayment(object VirtualWalletID, object VirtualWalletID2, object amount, object type, object MerchantAccountID, object APIKey)
+        public void ProcessPayment(int VirtualWalletID, int VirtualWalletID2, double amount, string type, int MerchantAccountID, int APIKey)
         {
             //Process a Payment BY Type, deduct from one merchant account and deposit it into another 
             if (type.Equals("payment"))
@@ -253,10 +306,10 @@ namespace WebAPIMerchant.Controllers
 
         }
 
-        [HttpPut]
-        [HttpPut("UpdatePaymentAccount")]
+        
+        [HttpPut("UpdatePaymentAccount/{VirtualWalletID}/{AccountHolderInformation}/{MerchantAccountID}/{APIKey}")]
 
-        public void UpdatePaymentAccount(object VirtualWalletID, object AccountHolderInformation, object MerchantAccountID, object APIKey)
+        public void UpdatePaymentAccount(int VirtualWalletID, int AccountHolderInformation, int MerchantAccountID, int APIKey)
         {
             //Ask about This method 
             //Update Customer or restaurant Information
@@ -308,10 +361,10 @@ namespace WebAPIMerchant.Controllers
 
         }
 
-        [HttpPut]
-        [HttpPut("FundAccount")]
+        
+        [HttpPut("FundAccount/{VirtualWalletID}/{amount}/{MerchantAccountID}/{APIKey}")]
 
-        public void FundAccount(object VirtualWalletID, object amount, object MerchantAccountID, object APIKey)
+        public void FundAccount(int VirtualWalletID, int amount, int MerchantAccountID, int APIKey)
         {
             //Add money to the customer account 
             
@@ -374,12 +427,19 @@ namespace WebAPIMerchant.Controllers
         }
 
         
-        // POST: api/PaymentGateway
-        [HttpPost]
-        public void Post([FromBody]string value)
+        // POST: api/PaymentGateway/Post
+        [HttpPost("PostString/{value}")]
+        public string Poststring(string value)
         {
+            return value;
         }
-        
+        // POST: api/PaymentGateway/Post
+        [HttpPost("PostString2")]
+        public string Poststring2(string value)
+        {
+            return value;
+        }
+
         // PUT: api/PaymentGateway/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
@@ -402,9 +462,9 @@ namespace WebAPIMerchant.Controllers
 
         }
         [HttpGet("{id}")] 
-        public int Get(int id)
+        public string  Get(int id)
         {
-            return id;
+            return "value" + id;
         }
     }
 }

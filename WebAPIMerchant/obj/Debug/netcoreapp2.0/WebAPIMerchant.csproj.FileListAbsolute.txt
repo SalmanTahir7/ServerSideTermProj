@@ -12,3 +12,31 @@ C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\D
 C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.csproj.CopyComplete
 C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.dll
 C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.pdb
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.deps.json
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.runtimeconfig.json
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.runtimeconfig.dev.json
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.dll
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.pdb
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\Utilities.dll
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\Utilities.pdb
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.csprojAssemblyReference.cache
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.csproj.CoreCompileInputs.cache
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.AssemblyInfoInputs.cache
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.AssemblyInfo.cs
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.csproj.CopyComplete
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.dll
+C:\Users\Salman Tahir\Desktop\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.deps.json
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.runtimeconfig.json
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.runtimeconfig.dev.json
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\WebAPIMerchant.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\Utilities.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\bin\Debug\netcoreapp2.0\Utilities.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.csprojAssemblyReference.cache
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.csproj.CoreCompileInputs.cache
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.AssemblyInfoInputs.cache
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.AssemblyInfo.cs
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.csproj.CopyComplete
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\WebAPIMerchant\obj\Debug\netcoreapp2.0\WebAPIMerchant.pdb

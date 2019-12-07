@@ -13,11 +13,16 @@ using System.IO;                        // needed for Stream and Stream Reader
 
 using System.Net;                       // needed for the Web Request
 
+using Utilities;
+using System.Data;              // import needed for DataSet and other data classes
 
+using System.Data.SqlClient;
 namespace PaymentProcessor
 {
     public partial class Registration : System.Web.UI.Page
     {
+        DBConnect objDB = new DBConnect();
+        SqlCommand objCommand = new SqlCommand();
 
         string url = "http://cis-iis2.temple.edu/Fall2019/3342_tug17598/TermProjectWS/api/service/PaymentGateway";
         protected void Page_Load(object sender, EventArgs e)
@@ -27,25 +32,59 @@ namespace PaymentProcessor
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedItem.Text == "Customer")
-            {
-                Customer.Style["visibility"] = "visible";
-            }
-            else
-            {
-                Restaurant.Style["visibility"] = "visible";
-            }
+            int merchantID = GenerateKey(7);
+            int webKey = GenerateKey(9);
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "AddMerchant";
+            SqlParameter merchant = new SqlParameter("@merchantid", merchantID);
+            merchant.Direction = ParameterDirection.Input;
+            merchant.SqlDbType = SqlDbType.Int;
+            merchant.Size = 4;
+            objCommand.Parameters.Add(merchant);
+            SqlParameter api = new SqlParameter("@webapi", webKey);
+            api.Direction = ParameterDirection.Input;
+            api.SqlDbType = SqlDbType.Int;
+            api.Size = 4;
+            objCommand.Parameters.Add(api);
+            SqlParameter name = new SqlParameter("@name", txtName.Text);
+            name.Direction = ParameterDirection.Input;
+            name.SqlDbType = SqlDbType.VarChar;
+            name.Size = 50;
+            objCommand.Parameters.Add(name);
+            SqlParameter uname = new SqlParameter("@username", txtUsername.Text);
+            uname.Direction = ParameterDirection.Input;
+            uname.SqlDbType = SqlDbType.VarChar;
+            uname.Size = 50;
+            objCommand.Parameters.Add(uname);
+            SqlParameter pass = new SqlParameter("@password", txtPassword.Text);
+            pass.Direction = ParameterDirection.Input;
+            pass.SqlDbType = SqlDbType.VarChar;
+            pass.Size = 50;
+            objCommand.Parameters.Add(pass);
+
+            objDB.DoUpdateUsingCmdObj(objCommand);
+
+
+            lblProcess.Text = "Merchant Added!";
+            lblProcess.Visible = true;
+            objCommand.Parameters.Clear();
+
+            WebRequest request = WebRequest.Create(url + "CreateVirtualWallet/" + merchantID.ToString() + "/" + webKey.ToString());
+            request.Method = "POST";
+            //request.ContentLength = MerchantJson.Length;
+            request.ContentType = "application/json";
+
         }
 
-        public int GenerateKey()
+        public int GenerateKey(int num)
         { int key;
             Random random = new Random();
             string r = "";
             int i;
             
-            for (i = 1; i < 7; i++)
+            for (i = 0; i < num; i++)
             {
-                r += random.Next(0, 5).ToString();
+                r += random.Next(0, 9).ToString();
             }
             key = Convert.ToInt32(r);
             return key; 
@@ -62,7 +101,7 @@ namespace PaymentProcessor
                 r += random.Next(0, 5).ToString();
             }
             MerchantID = Convert.ToInt32(r);
-            int WebAPIKey = GenerateKey();
+            int WebAPIKey = GenerateKey(5);
             Merchant merchant = new Merchant(lblName.Text, txtRAddress.Text, txtRBAcctType.Text, Convert.ToInt32(txtRBAcctNum.Text), Convert.ToDouble(txtRBAcctBalance.Text), "Restaurant");
             JavaScriptSerializer js = new JavaScriptSerializer();
             String MerchantJson = js.Serialize(merchant);
@@ -130,7 +169,7 @@ namespace PaymentProcessor
                 r += random.Next(0, 5).ToString();
             }
             MerchantID = Convert.ToInt32(r);
-            int WebAPIKey = GenerateKey();
+            int WebAPIKey = GenerateKey(5);
             Merchant merchant = new Merchant(lblName.Text, txtRAddress.Text, txtRBAcctType.Text, Convert.ToInt32(txtRBAcctNum.Text), Convert.ToDouble(txtRBAcctBalance.Text), "Customer");
             JavaScriptSerializer js = new JavaScriptSerializer();
             String MerchantJson = js.Serialize(merchant);

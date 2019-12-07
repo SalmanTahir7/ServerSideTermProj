@@ -33,6 +33,15 @@
                             <asp:ListItem Value="Restaurant" Text="Restaurant"></asp:ListItem>
                         </asp:DropDownList>
                         <br />
+                        Please input Your  Username: 
+                        <br />
+                        <asp:TextBox ID="txtUsername" runat="server">
+                        </asp:TextBox>
+                        <br />
+                        Please input your  password: 
+                        <br /> 
+                        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                        <br />
                     </div>
                     <br />
                     <asp:Button ID="btnCreate" runat="server" Text="Create Account" OnClick="btnCreate_Click" />

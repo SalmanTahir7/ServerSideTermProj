@@ -10,3 +10,8 @@ C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\
 C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
 C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.dll
 C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\bin\Debug\Utilities.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\bin\Debug\Utilities.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.pdb
