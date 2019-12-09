@@ -1,0 +1,17 @@
+C:\Users\Salman Tahir\source\repos\PaymentProcessor\Utilities\bin\Debug\Utilities.dll
+C:\Users\Salman Tahir\source\repos\PaymentProcessor\Utilities\bin\Debug\Utilities.pdb
+C:\Users\Salman Tahir\source\repos\PaymentProcessor\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+C:\Users\Salman Tahir\source\repos\PaymentProcessor\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\Salman Tahir\source\repos\PaymentProcessor\Utilities\obj\Debug\Utilities.dll
+C:\Users\Salman Tahir\source\repos\PaymentProcessor\Utilities\obj\Debug\Utilities.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\bin\Debug\Utilities.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\bin\Debug\Utilities.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\bin\Debug\Utilities.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\bin\Debug\Utilities.pdb
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.dll
+C:\Users\tug17598\Desktop\PaymentProcessor\PaymentProcessor\PaymentProcessor\Utilities\obj\Debug\Utilities.pdb
