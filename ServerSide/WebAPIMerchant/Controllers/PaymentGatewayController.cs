@@ -72,8 +72,8 @@ namespace WebAPIMerchant.Controllers
             }
         }
 
-        [HttpPost("CreateVirtualWallet/{AccountHolderInformation}/{MerchantAccountID}/{APIKey}")]
-        public Boolean CreateVirtualWallet(int AccountHolderInformation, int MerchantAccountID, int APIKey)
+        [HttpPost("CreateVirtualWallet/{MerchantAccountID}/{APIKey}")]
+        public Boolean CreateVirtualWallet([FromBody] Classes.Patron AccountHolderInformation, int MerchantAccountID, int APIKey)
         {
 
             if(isMerchant(MerchantAccountID, APIKey) == true)
@@ -83,7 +83,7 @@ namespace WebAPIMerchant.Controllers
                     //Creates a Virtal Wallet ID for the Merchant to use
                     //VirtualID of 6 Values between 0-9
                     //DataSet ds = objDB.GetDataSet("SELECT * FROM TP_USERS WHERE LoginID = " + AccountHolderInformation);
-                    objCommand.CommandType = CommandType.StoredProcedure;
+                    /*objCommand.CommandType = CommandType.StoredProcedure;
                     objCommand.CommandText = "TP_GetUser";
                     SqlParameter login = new SqlParameter("@loginid", AccountHolderInformation);
                     login.Direction = ParameterDirection.Input;
@@ -95,8 +95,8 @@ namespace WebAPIMerchant.Controllers
 
 
                     DataRow record;
-                    record = ds.Tables[0].Rows[0];
-                    Merchant merchant = new Merchant((string)record["Name"], (string)record["Address"], (string)record["Type"], (int)record["AccountNum"], 0.0, MerchantAccountID, APIKey);
+                    record = ds.Tables[0].Rows[0];*/
+                    Merchant merchant = new Merchant(AccountHolderInformation.Name, AccountHolderInformation.Address, AccountHolderInformation.AccountType, AccountHolderInformation.AccountNum, 0.0, MerchantAccountID, APIKey);
                     
 
                     objCommand.CommandType = CommandType.StoredProcedure;
