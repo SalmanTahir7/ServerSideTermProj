@@ -7,37 +7,32 @@ namespace WebAPIMerchant
 {
     public class Merchant
     {
-        private string name;
-        private string address;
-        private string baccounttype;
-        private string mtype;
-        private int accountnum;
-        private double initbalance;
-        private string merchantid;
-        private int webapikey;
-        public Merchant()
-        {
-            this.merchantid = MerchantID();
-            this.webapikey = KeyGenerator();
-        }
-        public Merchant(string newname, string address, string type, int num, double balance, string merchant)
-        {
-            this.name = newname;
-            this.address = address;
-            this.mtype = merchant;
-            this.baccounttype = type;
-            this.accountnum = num;
-            this.initbalance = balance;
-            this.merchantid = MerchantID();
-            this.webapikey = KeyGenerator();
-        }
         public String Name { get; set; }
         public String Address { get; set; }
         public String BAccountType { get; set; }
         public String MerchantType { get; set; }
         public Int64 AccountNum { get; set; }
         public Double InitBalance { get; set; }
-        public String MerchantID()
+        public int Merchantid { get; set; }
+        public int WebAPIKey { get; set; }
+        public Merchant()
+        {
+            this.Merchantid = Convert.ToInt32(MerchantIDgen());
+            this.WebAPIKey = KeyGenerator();
+        }
+        public Merchant(string newname, string address, string type, int num, double balance, int merchant, int web)
+        {
+            this.Name = newname;
+            this.Address = address;
+            this.MerchantType = type;
+            //this.baccounttype = type;
+            this.AccountNum = num;
+            this.InitBalance = balance;
+            this.Merchantid = merchant;
+            this.WebAPIKey = web;
+        }
+        
+        public String MerchantIDgen()
         {
             //ID is 8 digits from 0-4
             Random random = new Random();
